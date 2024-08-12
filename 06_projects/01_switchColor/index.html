@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch webPage Color</title>
+
+    <style>
+        body{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: 0.5s;
+        }
+        .parentBox{
+            height: 150px;
+            width: 150px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .childBox{
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            font-size: smaller;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        #gray{background-color: gray; color: white;}
+        #white{color: black; background-color: white;}
+        #red{color: white; background-color: red;}
+        #green{color: beige; background-color: green;}
+
+        .info{
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            height: 100px;
+            width: 300px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h2 class="title">Custom Color Scheme </h2>
+    <div class="parentBox">
+        <div class="childBox" id="gray">Gray</div>
+        <div class="childBox" id="white">white</div>
+        <div class="childBox" id="red">Red</div>
+        <div class="childBox" id="green">Green</div>
+    </div>
+    <div class="info">Click on the color button to switch the background color..!!</div>
+</body>
+<script src="script.js"></script>
+</html>

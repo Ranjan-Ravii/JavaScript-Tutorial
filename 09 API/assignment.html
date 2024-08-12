@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Assignment</title>
+
+    <style>
+        body{
+            background: #000;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="image"></div>
+        <div class="follower"></div>
+    </div>
+    <button class="btn">Press here</button>
+</body>
+<script>
+    // const requestUrl = "https://api.github.com/users/hiteshchaudhary"
+    const requestUrl = "https://api.github.com/users/Ranjan-Ravii"
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+
+    let profileImg;
+    let followerCount
+    
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+
+            followerCount = data.followers;
+            profileImg = data.avatar_url;
+
+            console.log(profileImg);
+            
+        }
+    }
+
+    const img = document.querySelector('.image');
+    const followers = document.querySelector('.follower');
+    followers.style.color = "white"
+
+    const showImg = function(){
+        img.style.backgroundImage = `url(${profileImg})`;
+        img.style.backgroundSize = `cover`;
+        img.style.border = "0.5px solid white"
+        img.style.height = "200px"
+        img.style.width = "200px"
+
+        followers.innerHTML =  `Followers : ${followerCount}`
+    }
+
+    document.querySelector('.btn').addEventListener('click', showImg)
+
+    xhr.send();
+
+</script>
+</html> 
+
+
+

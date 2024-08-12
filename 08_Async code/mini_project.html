@@ -1,0 +1,41 @@
+<!-- in the code below there is a heading and two buttons given -->
+<!-- The task is to start printing name and date in consol when "start" button is pressed -->
+<!-- and stop pring the same when stop button is pressed  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async mini project</title>
+</head>
+
+<body>
+    <h1>CHAI AUR JAVASCRIPT</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    const printName = function(){
+    console.log(`Ravi ${new Date()}`);
+    
+    }    
+
+    let intervalId;
+
+    document.querySelector('#start').addEventListener('click', function (e) {
+        intervalId = setInterval(printName, 1000)
+    })
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        console.log('stop button clicked');
+        clearInterval(intervalId)
+    })
+
+
+</script>
+
+</html>

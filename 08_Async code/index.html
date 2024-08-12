@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async in js</title>
+</head>
+<body>
+    <h1>Async in JS</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    // write code for executing a task after 2 sec
+
+    // setTimeout(function(){
+    //     console.log("ravi")
+    // },2000)
+
+    const sayName = function(){
+        console.log("ravi")
+    }
+    setTimeout(sayName,3000)
+
+
+    // write code for changing the heading into some other text after 3 sec of page refresh
+
+    const headingText = document.querySelector('h1')
+    const newHeading = function(){
+        headingText.innerHTML = "This is Async in JS."
+        console.log("Heading changed")
+    }
+
+    const changeHeading = setTimeout(newHeading,3000)
+
+    // write code for stoping the callback when stop button id pressed
+
+    document.querySelector('#stop').addEventListener('click',function(e){
+        clearTimeout(changeHeading)
+        console.log('STOPPED');
+        
+    })
+
+
+
+</script>
+</html>

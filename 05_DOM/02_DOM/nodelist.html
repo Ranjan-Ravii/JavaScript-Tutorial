@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+</body>
+
+<script>
+
+    // create a element div and add class and id to that div add some stying and attach to the webpage
+    const div = document.createElement('div')
+    console.log(div)
+    div.className = "main"
+    div.id = Math.round(Math.random()* 10+1)
+    div.setAttribute("title", "this is generated title")
+    div.style.padding = "12px"
+    div.style.backgroundColor = "green"
+    // div.innerHTML = "this is genearted text"
+    const addText = document.createTextNode("this is genearted text")
+    div.appendChild(addText)
+    document.body.appendChild(div)
+
+
+    //   create a paragraph element and add id, class, styling and attach to webpage 
+
+    const para = document.createElement('p')
+    console.log(para)
+    para.id  = "para1"
+    para.className = "paragraph"
+
+    const addedText = document.createTextNode("This is a paragraph created though js")
+    para.appendChild(addedText)
+    document.body.appendChild(para)
+
+    para.style.backgroundColor = "red"
+    para.style.padding = "12px"
+    para.style.margin = "10px"
+
+
+    // create a functioin to create a element by taking arguments 
+
+    function create_element (elementName) {
+        const element = document.createElement(elementName)
+        console.log(element)
+
+        element.id = "title"
+        element.className = "title heading"
+
+        const addText = document.createTextNode("WELCOME TO JAVASCRIPT : NODELIST")
+        element.appendChild(addText)
+        document.body.appendChild(element)
+
+        element.style.color ="beige"
+        element.style.padding = "10px"
+    }
+
+    create_element("h1")
+
+
+    </script>
+</html>

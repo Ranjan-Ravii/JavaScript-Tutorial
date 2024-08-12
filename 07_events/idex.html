@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            height: 300px;
+            width: 450px;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="images" class="images">
+            <li><img id="hibiscus" src="./resources/hibiscus.jpg" alt="Hibiscus"></li>
+            <li><img id="mountain" src="./resources/mountain.jpg" alt="Mountain"></li>
+            <li><img id="puppy" src="./resources/puppy.jpg" alt="Puppy"></li>
+            <li><img id="simba" src="./resources/simba.jpg" alt="Simba"></li>
+            <li><a id="google" href="https://www.google.com/">GOOGLE</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Three ways to invoke click event:
+        // 1) Inline script using onclick attribute
+        // 2) Selecting the element and then using the onclick property
+        // 3) Using addEventListener method
+
+        // Uncomment the line below to use the second method:
+        // document.getElementById('hibiscus').onclick = function(){
+        //     console.log("Hibiscus image is clicked")
+        // }
+
+
+
+        // Event propagation: capturing and bubbling phases
+            // Default is false which is the bubbling phase
+            // true indicates capturing phase
+        document.querySelector('#images').addEventListener('click', function (e) {
+            console.log('Capturing all -->> moving top to bottom');
+        }, false); 
+        document.querySelector('#puppy').addEventListener('click', function (e) {
+            console.log('Bubbling -->> moving bottom to top');
+            e.stopPropagation()
+        }, false); 
+
+        // depfault prevent 
+
+        document.getElementById('google').addEventListener('click', function(e){
+            e.preventDefault()
+            e.stopPropagation()
+            console.log("defaltu action prevented")
+        })
+
+    </script>
+</body>
+
+</html>

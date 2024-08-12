@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event task</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            height: 300px;
+            width: 450px;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- task is to remove the picture which is clicked. -->
+
+
+    <div>
+        <ul id="images" class="images">
+            <li><img id="hibiscus" src="./resources/hibiscus.jpg" alt="Hibiscus"></li>
+            <li><img id="mountain" src="./resources/mountain.jpg" alt="Mountain"></li>
+            <li><img id="puppy" src="./resources/puppy.jpg" alt="Puppy"></li>
+            <li><img id="simba" src="./resources/simba.jpg" alt="Simba"></li>
+            <li><a id="google" href="https://www.google.com/">GOOGLE</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    document.querySelector('#google').addEventListener('click', function(e){
+        e.preventDefault()
+    })
+
+   document.querySelector('#images').addEventListener('click', function(e){
+    console.log(e.target.parentNode);
+    console.log(e.target.tagName);
+    
+    if (e.target.tagName === 'IMG') {
+        console.log(e.target.id);
+        let deleteIt = e.target.parentNode
+        deleteIt.remove();
+    }
+    
+    
+   })
+
+</script>
+
+</html>

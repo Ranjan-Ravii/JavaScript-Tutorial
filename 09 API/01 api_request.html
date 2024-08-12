@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request</title>
+</head>
+<body>
+    <h1>This is API lesson</h1>
+</body>
+
+<script>
+
+    const requestUrl = "https://api.github.com/users/Ranjan-Ravii"
+    const request = new XMLHttpRequest()
+    request.open('GET', requestUrl)
+    request.onreadystatechange = function(){
+        console.log(request.readyState);
+        if (request.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            console.log(typeof data);
+            console.log(data.followers);
+        }   
+    }
+    request.send()
+
+
+</script>
+
+</html>
